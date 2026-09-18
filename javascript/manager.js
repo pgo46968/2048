@@ -21,24 +21,82 @@ class GameManager {
   }
 
   setupInput() {
+    // Controlos de Teclado (PC)
     window.addEventListener("keydown", (e) => {
-      // Prevenir scroll nas setas
       if (
         ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1
       ) {
         e.preventDefault();
       }
-
-      if (this.model.move(e.code)) {
-        this.render();
-        if (this.model.gameOver) {
-          setTimeout(
-            () => alert(`Game Over! Score Final: ${this.model.score}`),
-            100,
-          );
-        }
-      }
+      this.handleMove(e.code);
     });
+
+    // Controlos de Toque / Swipe (Telemóvel)
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    window.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      },
+      { passive: false },
+    );
+
+    window.addEventListener(
+      "touchend",
+      (e) => {
+        let touchEndX = e.changedTouches[0].screenX;
+        let touchEndY = e.changedTouches[0].screenY;
+
+        this.handleSwipe(touchStartX, touchStartY, touchEndX, touchEndY);
+      },
+      { passive: false },
+    );
+
+    // Prevenir scroll ao arrastar na grelha
+    this.boardElement.addEventListener(
+      "touchmove",
+      (e) => {
+        e.preventDefault();
+      },
+      { passive: false },
+    );
+  }
+
+  // Lógica para detetar a direção do swipe
+  handleSwipe(startX, startY, endX, endY) {
+    let deltaX = endX - startX;
+    let deltaY = endY - startY;
+
+    // Exige um movimento mínimo para não detetar toques acidentais
+    if (Math.abs(deltaX) < 30 && Math.abs(deltaY) < 30) return;
+
+    let direction = "";
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      // Movimento Horizontal
+      direction = deltaX > 0 ? "ArrowRight" : "ArrowLeft";
+    } else {
+      // Movimento Vertical
+      direction = deltaY > 0 ? "ArrowDown" : "ArrowUp";
+    }
+
+    this.handleMove(direction);
+  }
+
+  // Função auxiliar para processar qualquer movimento (Teclado ou Swipe)
+  handleMove(direction) {
+    if (this.model.move(direction)) {
+      this.render();
+      if (this.model.gameOver) {
+        setTimeout(
+          () => alert(`Game Over! Score Final: ${this.model.score}`),
+          100,
+        );
+      }
+    }
   }
 
   getTileStyle(value) {
