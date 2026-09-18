@@ -1,28 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2048 - Arquitetura Completa</title>
     <!-- Ligação ao ficheiro CSS -->
-    <link rel="stylesheet" href="CSS/style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  <body>
     <div class="header">
-        <h1>2048</h1>
-        <div class="score-container">
-            <span>Score</span>
-            <div id="score">0</div>
-        </div>
+      <h1>2048</h1>
+      <div class="score-container">
+        <span>Score</span>
+        <div id="score">0</div>
+      </div>
     </div>
 
     <div id="game-board">
-        <!-- As células serão geradas pelo Manager -->
+      <!-- As células serão geradas pelo Manager -->
     </div>
 
     <!-- Carregar os scripts por ordem lógica -->
-    <script src="JavaScript/model.js"></script>
-    <script src="JavaScript/manager.js"></script>
-</body>
+    <script src="javaScript/model.js"></script>
+    <script src="javaScript/manager.js"></script>
+  </body>
 </html>
