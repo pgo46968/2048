@@ -101,7 +101,7 @@ class GameManager {
 
   getTileStyle(value) {
     const colors = {
-      2: { bg: "#eee4da", color: "#776e65" },
+      2: { bg: "#eee4da", color: "#6a625a" },
       4: { bg: "#ede0c8", color: "#776e65" },
       8: { bg: "#f2b179", color: "#f9f6f2" },
       16: { bg: "#f59563", color: "#f9f6f2" },

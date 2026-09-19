@@ -3,8 +3,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #faf8ef;
-  color: #776e65;
+  background-color: #f3e9cf;
+  color: #f37e08;
   margin-top: 40px;
 }
 
@@ -23,7 +23,7 @@ h1 {
 
 .score-container {
   background-color: #bbada0;
-  color: white;
+  color: rgb(154, 240, 164);
   padding: 10px 25px;
   border-radius: 6px;
   font-weight: bold;
@@ -34,22 +34,23 @@ h1 {
 .score-container span {
   display: block;
   font-size: 13px;
-  color: #eee4da;
+  color: #076677;
   text-transform: uppercase;
 }
 
 #game-board {
-  background-color: #bbada0;
+  background-color: #bf946b;
   padding: 10px;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(4, 75px);
   grid-template-rows: repeat(4, 75px);
   gap: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,1);
 }
 
 .cell {
-  background-color: rgba(238, 228, 218, 0.35);
+  background-color: rgba(237, 230, 226, 0.35);
   border-radius: 5px;
   display: flex;
   justify-content: center;
