@@ -4,7 +4,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #f3e9cf;
-  color: #f37e08;
+  color: #51c6f1;
   margin-top: 40px;
 }
 
@@ -23,7 +23,7 @@ h1 {
 
 .score-container {
   background-color: #bbada0;
-  color: rgb(154, 240, 164);
+  color: rgb(251, 252, 251);
   padding: 10px 25px;
   border-radius: 6px;
   font-weight: bold;
@@ -39,7 +39,7 @@ h1 {
 }
 
 #game-board {
-  background-color: #bf946b;
+  background-color: #b0855d;
   padding: 10px;
   border-radius: 10px;
   display: grid;
